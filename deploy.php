@@ -19,6 +19,8 @@ echo <<<EOT
  /\\"/\   v$VERSION
 (`=*=') 
  ^---^`-.
+
+
 EOT;
 
 // Check whether client is allowed to trigger an update
