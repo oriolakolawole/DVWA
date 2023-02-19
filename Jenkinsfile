@@ -9,6 +9,6 @@ node {
     }
   }
   stage('Snyk Analysis') {
-    snykSecurity severity: 'medium', snykInstallation: 'snykscan', snykTokenId: 'Synk', additionalArguments: '--all-projects', targetFile : 'compose.lock'
+    snykSecurity severity: 'medium', snykInstallation: 'snykscan', snykTokenId: 'Synk', targetFile : 'compose.lock'
   }
 }
