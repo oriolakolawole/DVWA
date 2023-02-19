@@ -9,8 +9,6 @@ node {
     }
   }
   stage ('DAST') {
-    sshagent(['zap']) {
-      sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.125.32.102 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://34.125.95.251/" '
-    }
+    sh 'ssh -o StrictHostKeyChecking=no ubuntu@34.125.32.102 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://34.125.95.251/" '
   }
 }
