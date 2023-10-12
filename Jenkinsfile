@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('Git Secrets') {
-    sh 'trufflehog https://github.com/oriolakolawole/DVWA.git --json || true'
+    sh 'trufflehog https://github.com/oriolakolawole/DVWA.git || true'
   }
   stage('SonarQube Analysis') {
     def scannerHome = tool 'Sonar-scanner';
