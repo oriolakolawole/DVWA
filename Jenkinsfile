@@ -13,6 +13,6 @@ node {
   }
    stage ('DAST Analysis') {
          sshagent (credentials:[‘sshlogin’]){
-          Sh ‘ssh -o StrictHostKeyChecking=no root@35.188.206.16 "docker run -t owasp/zap2docker-stable zap-baseline.py -t https://aopartnersdev.com.ng/devsecops/" || true '    
+          Sh ‘ssh -o StrictHostKeyChecking=no root@35.188.206.16 "docker run -t owasp/zap2docker-stable zap-baseline.py -t https://aopartnersdev.com.ng/devsecops/" || true'    
     }
 }
