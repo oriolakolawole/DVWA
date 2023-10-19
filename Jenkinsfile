@@ -2,15 +2,16 @@ node {
   stage('SCM') {
     checkout scm
   }
+  stage('Git Secrets') {
+    sh 'trufflehog https://github.com/oriolakolawole/DVWA.git || true'
+  }
   stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarScanner';
+    def scannerHome = tool 'Sonar-scanner';
     withSonarQubeEnv() {
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
-  stage ('ZAP Analysis') {
-    sshagent(credentials:['zap']){
-      sh 'ssh -o StrictHostKeyChecking=no root@34.125.32.102 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://34.125.95.251/" || true '
-    }
-  }
+   stage ('DAST Analysis') {
+      sh 'sudo docker run -t owasp/zap2docker-stable zap-baseline.py -t https://aopartnersdev.com.ng/devsecops/ || true '  
+   }
 }
