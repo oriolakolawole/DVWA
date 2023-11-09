@@ -11,7 +11,7 @@ node {
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
-   stage ('Dynamic Application Security Testi') {
+   stage ('Dynamic Application Security Testing') {
       sh 'sudo docker run -t owasp/zap2docker-stable zap-baseline.py -t https://aopartnersdev.com.ng/devsecops/ || true '  
    }
 }
