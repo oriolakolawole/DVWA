@@ -1,6 +1,6 @@
 node {
   stage('Retrieving') {
-    checkout scm
+    
   }
   stage('Searching for Secrets') {
     sh 'trufflehog https://github.com/oriolakolawole/DVWA.git || true'
